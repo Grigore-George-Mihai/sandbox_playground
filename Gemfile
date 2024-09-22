@@ -24,6 +24,10 @@ gem "tzinfo-data", platforms: %i[windows jruby]
 # Authentication
 gem "devise"
 
+# S3 Integration
+gem "carrierwave", "~> 3.0"
+gem "fog-aws"
+
 group :development, :test do
   gem "byebug"
   gem "debug", platforms: %i[mri windows], require: "debug/prelude"
