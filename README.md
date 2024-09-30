@@ -36,6 +36,7 @@ git clone https://github.com/Grigore-George-Mihai/sandbox_playground
 ## Implementations
 
 - [S3 integration for file uploads with CarrierWave](https://github.com/Grigore-George-Mihai/sandbox_playground/pull/1)
+- [Add elasticsearch integration](https://github.com/Grigore-George-Mihai/sandbox_playground/pull/2)
 
 ## Gems
 
