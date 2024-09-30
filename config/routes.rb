@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 
   # Define root route
   root "home#index"
+  resources :posts, only: %i[index new create] do
+    get :autocomplete, on: :collection
+  end
 
   # Health check route at /up for monitoring app status
   get "up" => "rails/health#show", as: :rails_health_check

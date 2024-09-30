@@ -20,3 +20,5 @@ unless User.exists?
     password_confirmation: ENV.fetch("DEFAULT_USER_PASSWORD", nil)
   )
 end
+
+FactoryBot.create_list(:post, 100) unless Post.exists?
