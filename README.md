@@ -57,6 +57,9 @@ git clone https://github.com/Grigore-George-Mihai/sandbox_playground
 - [Bullet](https://github.com/flyerhzm/bullet): Detects N+1 queries and unused eager loading.
 - [Rack Mini Profiler](https://github.com/MiniProfiler/rack-mini-profiler): Performance profiling tool.
 
+### Error Tracking
+- [Rollbar](https://github.com/rollbar/rollbar-gem): Real-time error tracking and reporting.
+
 ### Debugging
 - [Byebug](https://github.com/deivid-rodriguez/byebug): Debugging tool for Ruby applications.
 
