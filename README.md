@@ -11,6 +11,7 @@ Different branches will be added to showcase specific implementations, allowing 
 - [Implementations](#implementations)
 - [Gems](#gems)
 - [Rake Tasks](#rake-tasks)
+- [Docker Setup](#docker-setup)
 - [Contact](#contact)
 
 ## Installation
@@ -36,6 +37,7 @@ git clone https://github.com/Grigore-George-Mihai/sandbox_playground
 ## Implementations
 
 - [S3 integration for file uploads with CarrierWave](https://github.com/Grigore-George-Mihai/sandbox_playground/pull/1)
+- [Add elasticsearch integration](https://github.com/Grigore-George-Mihai/sandbox_playground/pull/2)
 
 ## Gems
 
@@ -54,6 +56,9 @@ git clone https://github.com/Grigore-George-Mihai/sandbox_playground
 - [Scout APM](https://github.com/scoutapp/scout_apm_ruby): Application monitoring tool.
 - [Bullet](https://github.com/flyerhzm/bullet): Detects N+1 queries and unused eager loading.
 - [Rack Mini Profiler](https://github.com/MiniProfiler/rack-mini-profiler): Performance profiling tool.
+
+### Error Tracking
+- [Rollbar](https://github.com/rollbar/rollbar-gem): Real-time error tracking and reporting.
 
 ### Debugging
 - [Byebug](https://github.com/deivid-rodriguez/byebug): Debugging tool for Ruby applications.
@@ -86,6 +91,27 @@ git clone https://github.com/Grigore-George-Mihai/sandbox_playground
     ```
 
     - This task runs tools like Brakeman and Bundler Audit to ensure your application is secure.
+
+## Docker Setup
+- If you prefer to run the application inside a Docker container, follow these steps:
+
+1. **Build the Docker image:**
+
+    ```bash
+    docker-compose build
+    ```
+
+2. **Start the Application and services:**
+
+    ```bash
+    docker-compose up
+    ```
+
+3. **Stop the Application:**
+
+    ```bash
+    docker-compose down
+    ```
 
 ## Contact
 

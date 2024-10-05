@@ -1,0 +1,79 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: >
+      bash -c '
+        rm -f tmp/pids/server.pid &&
+        bundle exec rails db:create &&
+        bundle exec rails db:migrate &&
+        bundle exec rails db:seed &&
+        bundle exec rails s -b 0.0.0.0 -p 3000
+      '
+    ports:
+      - "3000:3000"
+    environment:
+      - RAILS_ENV=development
+      - POSTGRES_HOST=db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/myapp_development
+      - REDIS_URL=redis://redis:6379/0
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+    volumes:
+      - .:/rails
+      - /rails/tmp
+    depends_on:
+      - db
+      - redis
+      - sidekiq
+      - elasticsearch
+
+  sidekiq:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: >
+      bash -c '
+        bundle exec sidekiq
+      '
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - RAILS_ENV=development
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+    volumes:
+      - .:/rails
+    depends_on:
+      - redis
+      - db
+      - elasticsearch
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: myapp_development
+    ports:
+      - "5433:5432"
+
+  redis:
+    image: redis:6.2
+    ports:
+      - "6380:6379"
+
+  elasticsearch:
+    image: elasticsearch:8.10.2
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9201:9200"
+      - "9301:9300"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+
+volumes:
+  es_data:
+    driver: local
