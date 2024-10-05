@@ -1,0 +1,13 @@
+<h1>Posts</h1>
+
+<%= simple_form_for :search, url: posts_path, method: :get, html: { class: 'd-flex', data: { controller: "autocomplete" } }, defaults: { label: false } do |f| %>
+  <%= f.input :query, placeholder: "Search posts...", input_html: { class: 'form-control me-2', data: { action: "input->autocomplete#search", autocomplete_target: "input" } } %>
+  <%= f.submit 'Search', class: 'btn btn-primary ms-2' %>
+  <div class="autocomplete-results" data-autocomplete-target="results"></div>
+<% end %>
+
+<%= turbo_frame_tag "posts" do %>
+  <%= render 'posts/partials/list', posts: @posts %>
+<% end %>
+
+<%= link_to "New post", new_post_path, class: "btn btn-danger" %>

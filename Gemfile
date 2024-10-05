@@ -27,6 +27,10 @@ gem "devise"
 gem "rollbar"
 gem "scout_apm"
 
+# Elasticsearch
+gem "elasticsearch", "~> 8.0"
+gem "searchkick"
+
 group :development, :test do
   gem "byebug"
   gem "debug", platforms: %i[mri windows], require: "debug/prelude"
