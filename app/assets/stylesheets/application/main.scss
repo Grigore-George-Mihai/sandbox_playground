@@ -6,3 +6,20 @@
   z-index: 9999;
   text-align: center;
 }
+
+.autocomplete-results {
+  border: 1px solid #ccc;
+  background-color: white;
+  position: absolute;
+  z-index: 1000;
+  width: 300px;
+}
+
+.autocomplete-item {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.autocomplete-item:hover {
+  background-color: #f0f0f0;
+}
