@@ -1,0 +1,18 @@
+<h1>Uploaded Photos</h1>
+
+<%= link_to 'Upload Photo', new_photo_path, class: 'btn btn-primary' %>
+
+<div class="row">
+  <% @photos.each do |photo| %>
+    <div class="col-md-4 mb-3">
+      <div class="card">
+        <% if photo.image? %>
+          <%= image_tag(photo.image.url, class: 'card-img-top') %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= photo.title %></h5>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

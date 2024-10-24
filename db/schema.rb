@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema[7.2].define(version: 2024_10_23_111240) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
 
   create_table "pghero_query_stats", force: :cascade do |t|
@@ -23,6 +24,13 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_23_111240) do
     t.bigint "calls"
     t.datetime "captured_at", precision: nil
     t.index ["database", "captured_at"], name: "index_pghero_query_stats_on_database_and_captured_at"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string "title", default: "", null: false
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

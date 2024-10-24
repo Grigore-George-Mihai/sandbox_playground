@@ -17,6 +17,9 @@
           <li class="nav-item active">
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
+          <li class="nav-item">
+            <%= link_to "Photos", photos_path, class: "nav-link" %>
+          </li>
         </ul>
 
         <% if user_signed_in? %>
