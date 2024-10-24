@@ -1,7 +1,7 @@
 # Sandbox Playground
 
 This repository serves as a sandbox playground for exploring and experimenting with various features and implementations in a monolithic Ruby on Rails (RoR) application. 
-Based on Rails 7.2.1, it includes a pre-configured setup with essential gems and tools to streamline development. 
+Based on Rails, it includes a pre-configured setup with essential gems and tools to streamline development. 
 Different branches will be added to showcase specific implementations, allowing for isolated development and testing of new features.
 
 ## Table of Contents
@@ -41,11 +41,20 @@ git clone https://github.com/Grigore-George-Mihai/sandbox_playground
 
 ## Gems
 
+### Database and Monitoring
+- [pg](https://github.com/ged/ruby-pg): PostgreSQL driver for Ruby, providing fast and efficient database connectivity.
+- [PgHero](https://github.com/ankane/pghero): A tool for monitoring PostgreSQL database performance, including query insights, index suggestions, and table size analysis.
+
 ### Authentication
 - [Devise](https://github.com/heartcombo/devise): Flexible authentication solution for Rails based on Warden.
 
+### Admin Interface
+- [ActiveAdmin](https://github.com/activeadmin/activeadmin): A flexible and extensible admin framework for Ruby on Rails applications, making it easy to build custom admin panels.
+- [ActiveAdmin Addons](https://github.com/platanus/activeadmin_addons): Enhances ActiveAdmin with additional features like input widgets, searchable selects, and improved UI components for better admin interfaces.
+
 ### Background Processing
 - [Sidekiq](https://github.com/mperham/sidekiq): Efficient background processing for Ruby applications.
+- [Sidekiq-Scheduler](https://github.com/moove-it/sidekiq-scheduler): Extends Sidekiq to support scheduled and recurring jobs using a simple configuration.
 - [Redis](https://github.com/redis/redis-rb): In-memory data structure store used by Sidekiq for managing background job queues, scheduling, and retries.
 
 ### Decorator and Forms

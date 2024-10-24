@@ -1,12 +1,13 @@
-require 'sidekiq/web'
+require "sidekiq/web"
 
 Rails.application.routes.draw do
-  # Devise routes for user authentication
+  ActiveAdmin.routes(self)
   devise_for :users
 
-  # Mount Sidekiq web UI at /sidekiq for background job monitoring
-  authenticate :user do
+  # Mount Sidekiq
+  authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => "/sidekiq"
+    mount PgHero::Engine => "/pghero"
   end
 
   # Define root route
