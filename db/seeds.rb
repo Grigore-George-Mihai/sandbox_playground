@@ -25,3 +25,5 @@ User.find_or_create_by!(email: ENV.fetch("DEFAULT_ADMIN_EMAIL", "admin@example.c
   user.password_confirmation = ENV.fetch("DEFAULT_ADMIN_PASSWORD", "AdminPassword123!")
   user.role = :admin
 end
+
+FactoryBot.create_list(:post, 100) unless Post.exists?
